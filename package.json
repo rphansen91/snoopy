@@ -1,0 +1,23 @@
+{
+  "name": "instant-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.40.0",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.2",
+    "form-data": "^2.1.2",
+    "moment": "^2.18.1",
+    "node-fetch": "^1.6.3",
+    "rp-utils": "^1.1.7"
+  }
+}

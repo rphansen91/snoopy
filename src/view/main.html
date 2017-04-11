@@ -1,0 +1,39 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>#snoopyapp</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="/img/favicon.ico">
+        <style>
+            body {background-color: #efefef;margin: 0;font-family: -apple-system, BlinkMacSystemFont, sans-serif;font-size: 20px;user-select: none; -webkit-tap-highlight-color: rgba(0,0,0,0);}
+            a {text-decoration: none;}
+            p {margin: 0;font-family: -apple-system, BlinkMacSystemFont, sans-serif;font-size: 1em;}
+            b {font-size: 3em;display: block}
+            img {flex: 1;border-radius: 0.6em;border: 1px solid rgba(0,0,0,0.8);}
+            .center-content {position: relative;display: flex; align-items: center;flex-direction: column;min-height: calc(100% - 3em);padding: 1em 0.2em;padding-bottom: 4em;box-sizing: border-box;}
+            .post {width:100%; max-width: 40em; display: flex;margin: 0.4em;padding: 0.4em;border-radius: 0.6em;border: 1px solid rgba(0,0,0,0.8); color: #fff;cursor:pointer; text-decoration: none;box-sizing: border-box;
+                background-image: linear-gradient(rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.55) 100%);
+            }
+            .info {flex:4;display: flex;justify-content: center;flex-direction: column; padding-right: 0.2em;}
+            .counts {flex:3;display: flex;text-align: center;font-size: 0.6em;justify-content: center;align-items: center;}
+            .counts div {flex: 1;margin: 0.1em;}
+            .caption {margin: 0.6em 0;max-height: 3.05em;line-height:1em;overflow: hidden;}
+            .time {text-align: right;}
+            footer {position: relative; bottom: 0; height: 3em; background-color: #fff;text-align: center; width: 100%;box-shadow: -3px 0 3px 3px rgba(0,0,0,0.2);}
+            footer a {line-height: 3em; padding: 0.4em 1em;color: rgba(0,0,0,0.6);border-left: 1px solid rgba(0,0,0,0.6);}
+            footer a:last-child {border-right: 1px solid rgba(0,0,0,0.6);}
+            .namelogo {font-size: 72px;color: #fff;font-family: cursive;margin: 0.6em;}
+            body {background: linear-gradient(-135deg, #ffe505 0%, #ed1f24 100%);}
+        </style>
+    </head>
+    <body>
+        <div class="center-content">
+            <a href="/"><h1 class="namelogo">#snoopyapp</h1></a>
+            {{_CONTENT_}}
+        </div>
+        <footer>
+            <a href="/">Home</a>
+            <a href="/terms">Terms</a>
+        </footer>
+    </body>
+</html>
