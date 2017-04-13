@@ -35,8 +35,10 @@ app.get('/', (req, res) => {
         .then(posts => posts.data || [])
     ])
     .then(([user, posts]) => ([
+        `<div id="route-outlet">`,
         `<div class="outlet" name="settings">${renderUser(user)}</div>`,
-        `<div class="outlet" name="home">${renderPosts([user, posts])}</div>`
+        `<div class="outlet" name="home">${renderPosts([user, posts])}</div>`,
+        `</div>`
     ]).join(''))
     .then(main)
     .then(htmlRes)

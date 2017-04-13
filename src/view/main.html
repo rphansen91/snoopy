@@ -31,8 +31,8 @@
             .route {padding: 0 1em;color: rgba(0,0,0,0.6);border-left: 1px solid rgba(0,0,0,0.6);opacity: 1; transition: opacity 0.3s ease-in;}
             .route:hover {opacity: 0.6;}
             .route:last-child {border-right: 1px solid rgba(0,0,0,0.6);}
-            .outlet {position: absolute; width: 100%; transform: translate3d(0, 100px, 0); opacity: 0; transition: transform 0.4s ease-in, opacity 0.4s ease-in;pointer-events: none;}
-            .outlet-active {transform: translate3d(0, 0, 0); opacity: 1; transition: transform 0.4s ease-in 0.4s, opacity 0.4s ease-in 0.4s;pointer-events: all;}
+            .outlet {width: 100%; transform: translate3d(0, 100px, 0); opacity: 0; transition: transform 0.4s ease-in, opacity 0.4s ease-in, visibility 0s linear 0.4s;visibility: hidden;}
+            .outlet-active {transform: translate3d(0, 0, 0); opacity: 1; transition: transform 0.4s ease-in 0.4s, opacity 0.4s ease-in 0.4s, visibility 0s linear 0s;visibility: visible;}
             .namelogo {text-align: center; font-size: 72px;color: #fff;font-family: cursive;margin: 0.6em 0;transition: transform 0.3s ease-in;}
             a:focus .namelogo {transform: scale(1.1);}
             svg {display: inline-block; height: 2em; width: 2em;vertical-align: middle;}
@@ -93,8 +93,10 @@
                     var name = element.getAttribute('name');
                     onClick(element, function (evt) {
                         if (!name) return;
+                        element.classList.add('active');
                         activeOutlet(outlets, name);
                         setTimeout(function() {
+                            element.classList.remove('active');
                             document.activeElement.blur();
                         }, 400);
                     })  
@@ -104,8 +106,17 @@
             function activeOutlet (outlets, name) {
                 Object.keys(outlets)
                 .forEach(outlet => {
-                    if (outlet === name) outlets[outlet].classList.add('outlet-active')
-                    else outlets[outlet].classList.remove('outlet-active')
+                    if (outlet === name) {
+                        find('#route-outlet').appendChild(outlets[outlet]);
+                        setTimeout(function() {
+                            outlets[outlet].classList.add('outlet-active');
+                        }, 400);
+                    } else {
+                        outlets[outlet].classList.remove('outlet-active');
+                        setTimeout(function() {
+                            outlets[outlet].remove()
+                        }, 400);
+                    }
                 })
             }
 
