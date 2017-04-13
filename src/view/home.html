@@ -16,6 +16,7 @@
         text-decoration: none;
         color: #000;
         box-sizing: border-box;
+        transition: transform 0.3s ease-in;
     }
     .logo {
         position: relative;
@@ -31,6 +32,9 @@
         margin-bottom: 24px;
         opacity: 1;
         transition: opacity 0.3s ease-in;
+    }
+    .container:focus {
+        transform: scale(1.1);
     }
     .container:hover .logo {
         opacity: 0.6;
