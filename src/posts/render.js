@@ -8,12 +8,6 @@ const rand = max => Math.floor(Math.random() * max);
 const rand10000 = () => rand(10000);
 
 const HTML = `
-<style>
-    footer {
-        position: fixed;
-        bottom: 0;
-    }
-</style>
 <script>
     history.pushState(null, "", location.href.split("?")[0]);
 </script>

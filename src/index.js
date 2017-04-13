@@ -34,25 +34,14 @@ app.get('/', (req, res) => {
         instagram.recent(token)
         .then(posts => posts.data || [])
     ])
-    .then(renderPosts)
+    .then(([user, posts]) => ([
+        `<div class="outlet" name="settings">${renderUser(user)}</div>`,
+        `<div class="outlet" name="home">${renderPosts([user, posts])}</div>`
+    ]).join(''))
     .then(main)
     .then(htmlRes)
     .catch(sendError(res))
 });
-
-app.get('/settings', (req, res) => {
-    const url = Url.parse(req.url, true);
-    const token = req.cookies.token || url.query.token;
-    const htmlRes = sendHtml(res);
-
-    if (!token) return htmlRes(home)
-
-    instagram.user(token)
-    .then(user => user.data)
-    .then(renderUser)
-    .then(settings)
-    .then(htmlRes);
-})
 
 app.get('/terms', (req, res) => sendHtml(res)(terms));
 
