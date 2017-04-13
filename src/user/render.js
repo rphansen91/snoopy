@@ -2,7 +2,7 @@ module.exports = user => `
     <div class="post user">
         <img src="${user.profile_picture}" />
         <div class="info">
-            <p><b>${user.full_name}</b></p>
+            <h4>${user.full_name}</h4>
             <p>${user.bio}</p>
         </div>
         <div class="action">

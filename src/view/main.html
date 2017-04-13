@@ -5,18 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="/img/favicon.ico">
         <style>
-            body {background-color: #efefef;margin: 0;font-family: -apple-system, BlinkMacSystemFont, sans-serif;font-size: 20px;user-select: none; -webkit-tap-highlight-color: rgba(0,0,0,0);}
+            body {background-color: #efefef;margin: 0;font-family: -apple-system, BlinkMacSystemFont, sans-serif;font-size: 20px;user-select: none; -webkit-tap-highlight-color: rgba(0,0,0,0);overflow-x:hidden;}
             a {text-decoration: none;}
+            h4 {font-size: 1.4em; margin: .2em 0;}
             p {margin: 0;font-family: -apple-system, BlinkMacSystemFont, sans-serif;font-size: 1em;}
             b {font-size: 3em;display: block}
-            img {flex: 1;border-radius: 0.6em;border: 1px solid rgba(0,0,0,0.8);}
+            img {border-radius: 0.6em;border: 1px solid rgba(0,0,0,0.8);}
             .center-content {position: relative;display: flex; align-items: center;flex-direction: column;min-height: calc(100% - 3em);padding: 1em 0.2em;padding-bottom: 4em;box-sizing: border-box;}
             .post {position: relative; width:100%; max-width: 40em; display: flex;margin: 0.4em;padding: 0.4em;border-radius: 0.6em;border: 1px solid rgba(0,0,0,0.8); color: #fff;cursor:pointer; text-decoration: none;box-sizing: border-box;
                 background-image: linear-gradient(rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.55) 100%);
             }
-            .post.user {padding-bottom: 2em;}
+            .post.user {flex-wrap: wrap; padding-bottom: 2em;justify-content: center;}
             .info {flex:4;display: flex;justify-content: center;flex-direction: column; padding: 0 0.2em;}
-            .user .info {padding: 0 4em;}
+            .user .info {min-width: 300px;margin-bottom: 1em;}
             .counts {flex:3;display: flex;text-align: center;font-size: 0.6em;justify-content: center;align-items: center;}
             .action {position: absolute; left: 0; right: 0; bottom: 0; height: 2em;text-align: center;}
             .action a {display: inline-block; color: #fff; text-decoration: none; line-height: 2em;}
