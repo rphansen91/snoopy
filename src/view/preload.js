@@ -16,8 +16,8 @@ const wrapHtml = placeContent(mainHtmlFile);
 const loadMainHtmlFile = pipe(loadHtmlFile, wrapHtml);
 const homeHtml = loadMainHtmlFile('home');
 const termsHtml = loadMainHtmlFile('terms');
-const loadSettings = loadMainHtmlFile;
-const settingsHtml = pipe(loadMainHtmlFile, placeContent)('settings');
+const loadContentFile = pipe(loadMainHtmlFile, placeContent);
+const settingsHtml = loadContentFile('settings');
 
 module.exports = {
     main: wrapHtml,
