@@ -8,10 +8,11 @@ var http = require('http');
 var express = require('express');
 var instagram = require('./social/instagram');
 var renderPosts = require('./posts/render');
+var renderUser = require('./user/render');
 var recentSelector = require('./posts/recent');
 var cookieParser = require('cookie-parser')
 var { sendHtml, sendJson, sendError } = require('./send');
-var { main, terms, home } = require('./view/preload');
+var { main, terms, home, settings } = require('./view/preload');
 
 var app = express();
 var port = process.env.PORT || 9000;
@@ -39,6 +40,20 @@ app.get('/', (req, res) => {
     .catch(sendError(res))
 });
 
+app.get('/settings', (req, res) => {
+    const url = Url.parse(req.url, true);
+    const token = req.cookies.token || url.query.token;
+    const htmlRes = sendHtml(res);
+
+    if (!token) return htmlRes(home)
+
+    instagram.user(token)
+    .then(user => user.data)
+    .then(renderUser)
+    .then(settings)
+    .then(htmlRes);
+})
+
 app.get('/terms', (req, res) => sendHtml(res)(terms));
 
 app.get('/login', (req, res) => res.redirect(302, instagram.authorizationUrl()));
@@ -57,6 +72,11 @@ app.get('/instagram', (req, res) => {
     })
     .catch(sendError(res))
 });
+
+app.get('/logout', (req, res) => {
+    res.clearCookie('token');
+    res.redirect('/');
+})
 
 app.get('/recent', (req, res) => {
     const url = Url.parse(req.url, true);
