@@ -1,0 +1,17 @@
+{{_POST_}}
+<style>
+    #slider {position: relative; background-color: #ffe505; height: 1em; width: 100%;margin: 1em 0;}
+    #slider-percent {position: absolute; background-color: #ed1f24; left: 0; top: 0; bottom: 0; width: 100%; transform: scale(0, 1); transition: transform 1s cubic-bezier(.03,.19,.2,.88); transform-origin: left center;
+        box-shadow:0 0 10px 3px #ed1f24,0 0 12px 6px #ffe505,0 0 14px 9px#ed1f24;
+    }
+    em {font-weight: bold;}
+</style>
+<div id="slider">
+    <div id="slider-percent"></div>
+</div>
+{{_DESC_}}
+<script>
+    setTimeout(function() {
+        document.getElementById('slider-percent').style['transform'] = 'scale({{_CONTENT_}}, 1)';
+    }, 500);
+</script>

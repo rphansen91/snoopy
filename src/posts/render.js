@@ -17,7 +17,7 @@ module.exports = ([user, posts]) => {
     return HTML.concat((posts || [])
     .map(post => recentSelector([user, post]))
     .map(post => `
-    <a class="post" href="${post.clickUrl}" target="_blank">
+    <a class="post" href="/media/${post.mediaId}">
         <img src="${post.image}" />
         <div class="info">
             <div class="counts">

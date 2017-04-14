@@ -16,9 +16,14 @@ const wrapHtml = placeContent(mainHtmlFile);
 const loadMainHtmlFile = pipe(loadHtmlFile, wrapHtml);
 const homeHtml = loadMainHtmlFile('home');
 const termsHtml = loadMainHtmlFile('terms');
+const dynamicHtml = pipe(loadMainHtmlFile, placeContent);
+const sliderHtml = dynamicHtml('slider');
+const errorHtml = dynamicHtml('error');
 
 module.exports = {
     main: wrapHtml,
     home: homeHtml,
-    terms: termsHtml
+    terms: termsHtml,
+    slider: sliderHtml,
+    error: errorHtml
 }
