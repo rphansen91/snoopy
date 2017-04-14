@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
     if (!token) return htmlRes(home)
     
     return Promise.all([
-        instagram.user(token).then(e => {console.log(e); return e;}),
+        instagram.user(token),
         instagram.recent(token)
     ])
     .then(([user, posts]) => ([
